@@ -115,6 +115,7 @@ class _Currencyconvertermaterialpage
                     child: const Text('Clear'),
                   ),
                 )
+
                 ),
 
                 //...........convert.............//
@@ -124,7 +125,8 @@ class _Currencyconvertermaterialpage
                   child: ElevatedButton(
                     onPressed: (){
                       setState(() {
-                        result = double.parse(textEditingController.text) * 83.11;
+                        result = double.parse((double.parse(textEditingController.text) * 83.11).toStringAsFixed(2));
+                        // result = double.parse(textEditingController.text) * 83.11;
                       });
                     },
                     style: ElevatedButton.styleFrom(
