@@ -17,7 +17,6 @@ class _Currencyconvertermaterialpage
   // }
   @override
   Widget build(BuildContext context) {
-    print('built fn');
     const border = OutlineInputBorder(
       borderSide: BorderSide(
         width: 2.0,
@@ -87,26 +86,62 @@ class _Currencyconvertermaterialpage
                 keyboardType: const TextInputType.numberWithOptions(decimal: true),
               ),
             ),
+
+
             //------------------Convert Button-------------------------//
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10.0,vertical: 15),
-              child: ElevatedButton(
-                onPressed: (){
-                  setState(() {
-                    result = double.parse(textEditingController.text) * 83.11;
-                  });
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: (Colors.yellow),
-                  foregroundColor: (Colors.black87),
-                  minimumSize: const Size(double.infinity, 45),
-                  shape: RoundedRectangleBorder(
-                    side: const BorderSide(color: Colors.yellow),
-                    borderRadius: BorderRadius.circular(10),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+
+                //...........clear.............//
+
+                Expanded(child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: ElevatedButton(
+                    onPressed: (){
+                      setState(() {
+                        result = 0;
+                      });
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: (Colors.yellow),
+                      foregroundColor: (Colors.black87),
+                      // fixedSize: const Size(double.maxFinite, 40),
+                      shape: RoundedRectangleBorder(
+                        side: const BorderSide(color: Colors.yellow),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    child: const Text('Clear'),
+                  ),
+                )
+                ),
+
+                //...........convert.............//
+
+                Expanded(child:Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ElevatedButton(
+                    onPressed: (){
+                      setState(() {
+                        result = double.parse(textEditingController.text) * 83.11;
+                      });
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: (Colors.yellow),
+                      foregroundColor: (Colors.black87),
+                      // fixedSize: const Size(double.maxFinite, 40),
+                      shape: RoundedRectangleBorder(
+                        side: const BorderSide(color: Colors.yellow),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    child: const Text('Convert'),
                   ),
                 ),
-                child: const Text('Convert'),
-              ),
+                ),
+
+              ],
             ),
 
           ],
